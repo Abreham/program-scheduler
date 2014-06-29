@@ -17,7 +17,7 @@ public class SessionService {
 		this.talkService = talkService;
 	}
 
-	public List<Session> createSessions(List<Talk> talks,int totalPossibleDays, SessionType type)
+	public List<Session> createSessions(final List<Talk> talks,final int totalPossibleDays, final SessionType type)
 	{
 		_sessions = new ArrayList<Session>();
 		List<List<Talk>> afternoonSessions = findPossibleCombSession(talkService.get_talks(), 2, SessionType.AFTERNOON_SESSION);
@@ -32,7 +32,7 @@ public class SessionService {
 		return _sessions;
 	}
 	
-	public void printSessionCombination(List<List<Talk>> talks){
+	public void printSessionCombination(final List<List<Talk>> talks){
 		for (List<Talk> list : talks) {
 			System.out.println("#######");
 			for (Talk talk : list) {
@@ -43,7 +43,7 @@ public class SessionService {
 	
 	
 	
-	 private List<List<Talk>> findPossibleCombSession(List<Talk> talksListForOperation, int totalPossibleDays, SessionType type)
+	 private List<List<Talk>> findPossibleCombSession(final List<Talk> talksListForOperation, final int totalPossibleDays, final SessionType type)
 	    {
 
 	        
@@ -103,9 +103,10 @@ public class SessionService {
 	 
 
 	   
-     // Valid session time for morning session is equal to maxSessionTimeLimit.
-     // Valid session time for evening session is less than or eqaul to maxSessionTimeLimit and greater than or equal to minSessionTimeLimit.
-	 public boolean isValidSession(int sessionTimeMin,SessionType type){
+     /* morning session is equal to maxSessionTimeLimit.
+      * SessionType.AFTERNOON_SESSION min <= afternoon session <= SessionType.AFTERNOON_SESSION maximum  
+      */
+	 public boolean isValidSession(final int sessionTimeMin,SessionType type){
 		  boolean validSession = false;
 		  if(type.equals(SessionType.MORNING_SESSION))
               validSession = (sessionTimeMin == type.getMaxSessionTimeLimit());

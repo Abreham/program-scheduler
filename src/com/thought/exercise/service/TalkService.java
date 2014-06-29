@@ -30,7 +30,7 @@ public class TalkService {
 		_talks = new ArrayList<Talk>();
 	}
 
-	public void loadTalks(String fileName) throws InvalidScheduleException {
+	public void loadTalks(final String fileName) throws InvalidScheduleException {
 		try {
 			_talks = STRING_LIST_TO_TALK_LIST.apply(util.readLines(fileName));
 	
@@ -40,11 +40,14 @@ public class TalkService {
 		}
 	}
 	
+	/*
+	 * a function Transforming List<Pair<String,String>> into List<Talk> objects
+	 */
 	   
 	private static class StringListtoTalkFunction implements Function<List<Pair<String,String>>, List<Talk>>{
 
 		@Override
-		public List<Talk> apply(List<Pair<String, String>> input) {
+		public List<Talk> apply(final List<Pair<String, String>> input) {
 			List<Talk> talks = new ArrayList<Talk>();
 			for (Pair<String, String> pair : input)
 			{

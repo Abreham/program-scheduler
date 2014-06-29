@@ -7,7 +7,10 @@ import com.thought.exercise.service.IServiceFactory;
 import com.thought.exercise.service.TrackService;
 import com.thought.exercise.service.TrackServiceFactory;
 
-
+/*
+ * Test Track and schedule creation 
+ * throws exception in case of parse error.
+ */
 public class TestTrackService {
 	public static void main(String[] args) {
 		String fileName = "/home/dagem/workspace/thought-work/src/sample.txt";

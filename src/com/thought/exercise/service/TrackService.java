@@ -28,7 +28,7 @@ public class TrackService {
 
 
 	
-	/* 
+	/* create a Schedule and prints the tracks inside the schedule
 	 */
 	public void createSchedule() throws InvalidScheduleException,ParseException{
 	
@@ -53,6 +53,9 @@ public class TrackService {
 		}
 	}
 	
+	/*
+	 * 
+	 */
 		private List<Track> createTracks(final List<Session> moriningSessions,final List<Session> afternoonSessions) {
 			List<Track> tracks = new ArrayList<Track>();
             for (int index = 0; index < morningSessions.size(); index++) {
@@ -78,7 +81,7 @@ public class TrackService {
 	}
 
 	
-	private void removeScheduleTalks(List<Session> sessions){
+	private void removeScheduleTalks(final List<Session> sessions){
         for (Session session : sessions) {
 			talks.removeAll(session.getSessionTalks());
 		}
@@ -107,7 +110,7 @@ public class TrackService {
 	}
 	
 	
-	public void printTrack(Track track,SessionType type) throws ParseException{
+	public void printTrack(final Track track,final SessionType type) throws ParseException{
 		
 		DateFormat df = new SimpleDateFormat("h:mm a");
 		Calendar cal = Calendar.getInstance();
@@ -138,7 +141,7 @@ public class TrackService {
 		}
 	}
 	
-	private void printSession(SessionType type, List<Talk> talks ,String talkStartTime) throws ParseException{	
+	private void printSession(final SessionType type, final List<Talk> talks ,String talkStartTime) throws ParseException{	
 		for (Talk talk : talks) {
 			System.out.println(talkStartTime + " -- " + talk.getTitle() + "==" + talk.getDuration());
 			 talkStartTime = talkStarTime(talkStartTime,talk.getDuration());
@@ -146,7 +149,7 @@ public class TrackService {
 	}
 	
 	
-    private String talkStarTime(String date, int timeDuration) throws ParseException
+    private String talkStarTime(final String date, final int timeDuration) throws ParseException
     {
     	DateFormat dateFormat = new SimpleDateFormat("h:mm a");
     	Calendar c = Calendar.getInstance();
