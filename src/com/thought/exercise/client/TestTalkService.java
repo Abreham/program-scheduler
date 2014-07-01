@@ -10,8 +10,7 @@ public class TestTalkService {
 		
 			try {
 				talkService.loadTalks(fileName);
-				//sessionService.printSessionCombination(sessionService.findPossibleCombSession(talkService.get_talks(), 2, SessionType.AFTERNOON_SESSION));
-				
+                				
 			} catch (InvalidScheduleException e) {
 				e.printStackTrace();
 			}
