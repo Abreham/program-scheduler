@@ -2,7 +2,7 @@ About
 ======
 Eclipse Java project
 
-Import the project as a Java Project, run tests as a java-application.
+Import project as a Java Project -> run tests as a java-application.
 
 Domain
 ======
